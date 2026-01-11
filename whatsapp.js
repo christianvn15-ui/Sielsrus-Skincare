@@ -3,7 +3,7 @@
 ========================= */
 
 // Your WhatsApp number (replace with actual, no + or spaces)
-const WHATSAPP_NUMBER = "0832621770";
+const WHATSAPP_NUMBER = "27832621770";
 
 /* =========================
    DOM READY WRAPPER
@@ -125,3 +125,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
