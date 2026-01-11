@@ -1,18 +1,10 @@
-/* =========================
-   WHATSAPP ORDER SCRIPT
-========================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ====== CONFIG ======
-    // WhatsApp number in international format (South Africa example)
-    const WHATSAPP_NUMBER = "27832621770"; // replace with your number
-
-    // ====== CART & ELEMENTS ======
+    const WHATSAPP_NUMBER = "27832621770"; // Correct international format
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const orderSummary = document.getElementById("orderSummary");
-    const sendBtn = document.getElementById("sendOrder");
+    const sendLink = document.getElementById("sendOrderLink");
 
     const nameInput = document.getElementById("name");
     const locationInput = document.getElementById("location");
@@ -20,14 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardInput = document.getElementById("card");
     const form = document.getElementById("orderForm");
 
-    // ====== PREFILL NAME & LOCATION IF SAVED ======
+    // Prefill Name & Location
     const savedName = localStorage.getItem("customerName");
     const savedLocation = localStorage.getItem("customerLocation");
-
     if (savedName) nameInput.value = savedName;
     if (savedLocation) locationInput.value = savedLocation;
 
-    // ====== RENDER CART SUMMARY ======
     function renderOrderSummary() {
         if (!orderSummary) return;
         orderSummary.innerHTML = "";
@@ -36,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const li = document.createElement("li");
             li.textContent = "Your cart is empty.";
             orderSummary.appendChild(li);
-            sendBtn.disabled = true;
-            sendBtn.style.opacity = "0.5";
+            sendLink.classList.add("disabled");
+            sendLink.removeAttribute("href");
             return;
         }
 
@@ -52,16 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
         totalLi.innerHTML = `<strong>Total: R${cart.reduce((sum,i) => sum + i.price*i.qty, 0)}</strong>`;
         orderSummary.appendChild(totalLi);
 
-        sendBtn.disabled = false;
-        sendBtn.style.opacity = "1";
+        sendLink.classList.remove("disabled");
     }
 
     renderOrderSummary();
 
-    // ====== SEND ORDER VIA WHATSAPP ======
-    sendBtn.addEventListener("click", () => {
-
+    // Update WhatsApp link dynamically when clicked
+    sendLink.addEventListener("click", (e) => {
         if (cart.length === 0) {
+            e.preventDefault();
             alert("Your cart is empty.");
             return;
         }
@@ -72,15 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = cardInput.value.trim();
 
         if (!name || !location || !card) {
+            e.preventDefault();
             alert("Please fill in all required fields.");
             return;
         }
 
-        // Save Name & Location for next visit
         localStorage.setItem("customerName", name);
         localStorage.setItem("customerLocation", location);
 
-        // Build WhatsApp message
         let message = `🧴 *Sielsrus Skincare Order* 🧴\n\n`;
         message += `👤 *Customer:* ${name}\n`;
         message += `📍 *Location:* ${location}\n`;
@@ -98,22 +86,19 @@ document.addEventListener("DOMContentLoaded", () => {
         message += `\n💰 *Total:* R${total}\n`;
         message += `\nThank you for your order 💖`;
 
-        // Encode and build WhatsApp URL
         const encodedMessage = encodeURIComponent(message);
         const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
-        // Open WhatsApp (mobile & desktop friendly)
-        window.location.href = whatsappURL;
+        // Set the href of the <a> so the browser opens WhatsApp
+        sendLink.setAttribute("href", whatsappURL);
 
         // Clear cart after sending
         localStorage.removeItem("cart");
         cart = [];
         renderOrderSummary();
 
-        // Show confirmation
         if (form) {
-            form.innerHTML = `<h3>✅ Order Sent!</h3><p>Check WhatsApp to send your order. If WhatsApp didn't open automatically, click the button again.</p>`;
+            form.innerHTML = `<h3>✅ Order Prepared!</h3><p>Click the WhatsApp button to send your order.</p>`;
         }
     });
-
 });
