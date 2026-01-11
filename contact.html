@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Order | Sielsrus Skincare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="logo-container">
+        <img src="sielsrus.png" alt="Sielsrus Skincare Logo" class="logo">
+        <span class="brand-name">Sielsrus Skincare</span>
+    </div>
+
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="order-page">
+
+    <h2>Your Order Summary</h2>
+    <p class="order-instructions">
+        Review your items below, fill in your details, and tap <strong>Send Order via WhatsApp</strong>.
+    </p>
+
+    <ul id="orderSummary"></ul>
+
+    <form id="orderForm">
+        <label for="name">Full Name *</label>
+        <input id="name" placeholder="John Doe" required>
+
+        <label for="location">Delivery Location *</label>
+        <input id="location" placeholder="City / Suburb / Street" required>
+
+        <label for="courier">Courier Preference</label>
+        <select id="courier">
+            <option value="Preferred Courier">Preferred Courier</option>
+            <option value="Fastway">Fastway</option>
+            <option value="PostNet">PostNet</option>
+            <option value="Courier Guy">Courier Guy</option>
+            <option value="Pudo">Pudo</option>
+        </select>
+
+
+        <button type="button" id="sendOrder">Send Order via WhatsApp</button>
+    </form>
+
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 Sielsrus Skincare. All rights reserved.</p>
+</footer>
+
+<script src="whatsapp.js"></script>
+</body>
+</html>

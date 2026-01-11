@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sielsrus Skincare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="logo-container">
+        <img src="sielsrus.png" alt="Sielsrus Skincare Logo" class="logo">
+        <span class="brand-name">Sielsrus Skincare</span>
+    </div>
+
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<button class="cart-button">
+    🛒 Cart (<span id="cartCount">0</span>)
+</button>
+
+<main>
+
+    <!-- Adult Lotions -->
+    <section class="product-section">
+        <h2>Adult Lotions - Inland</h2>
+
+        <div class="product-grid">
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <h2>Adult Lotions - Coastal</h2>
+
+        <div class="product-grid">
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teen Lotions -->
+    <section class="product-section">
+        <h2>Teen Lotions</h2>
+
+        <div class="product-grid">
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Products -->
+    <section class="product-section">
+        <h2>Other Products</h2>
+
+        <div class="product-grid">
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
+                <p>PRODUCT_NAME</p>
+                <p>R 00-00</p>
+                <button class="add">+ Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Cart Sidebar -->
+<div class="cart" id="cart">
+    <h3>Your Order</h3>
+    <ul id="cartItems"></ul>
+
+    <a href="contact.html" class="send-link">
+        Proceed to Send Order
+    </a>
+</div>
+
+<!-- Product Modal -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <img id="modalImg">
+        <p id="modalName"></p>
+        <button class="add">+ Add to Cart</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <p>© 2026 Sielsrus Skincare. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
