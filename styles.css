@@ -17,6 +17,7 @@ body {
 .site-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 14px 24px;
     background: var(--white-soft);
     border-bottom: 2px solid var(--purple-lavender);
@@ -79,13 +80,16 @@ body {
 }
 
 /* Buttons */
-.add, .send {
+.add, .send-link {
     margin-top: 10px;
     padding: 10px 16px;
     border-radius: 999px;
     border: none;
     font-weight: 600;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .add {
@@ -93,8 +97,14 @@ body {
     color: white;
 }
 
-.send {
+.send-link {
     background: var(--gold-warm);
+    color: black;
+}
+
+.send-link.disabled {
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 /* Cart */
@@ -120,63 +130,14 @@ body {
     background: var(--white-soft);
     padding: 20px;
     transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -4px 0 10px rgba(0,0,0,0.2);
 }
 
 .cart.open {
     right: 0;
 }
 
-.send-link {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    background: var(--gold-warm);
-    padding: 10px;
-    border-radius: 999px;
-    text-decoration: none;
-    color: black;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 16px;
-    max-width: 300px;
-}
-
-/* Order Page */
-.order-page {
-    padding: 30px;
-    max-width: 400px;
-    margin: auto;
-}
-
-.order-page input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid var(--purple-lavender);
-}
-
-.qty-btn {
-    padding: 4px 8px;
-    border-radius: 6px;
-    border: 1px solid var(--purple-lavender);
-    background: white;
-    cursor: pointer;
-}
-
 .remove-btn {
     background: none;
     border: none;
@@ -185,136 +146,30 @@ body {
     font-size: 13px;
 }
 
-.send-link.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-}
-
-.qty-btn {
-    padding: 4px 8px;
-    border-radius: 6px;
-    border: 1px solid var(--purple-lavender);
-    background: white;
-    cursor: pointer;
-}
-
-.remove-btn {
-    background: none;
-    border: none;
-    color: crimson;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.send-link.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-}
-
-/* =========================
-   BUTTONS (ADD, SEND, CART, WHATSAPP)
-========================= */
-
-/* General button base */
-button, .send-link {
-    font-family: system-ui, sans-serif;
-    font-weight: 600;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-/* Add to Cart buttons */
-.add {
-    background: var(--purple-deep);
-    color: white;
-    padding: 10px 16px;
+/* Footer */
+.site-footer {
     margin-top: 10px;
-}
-
-.add:hover {
-    background: var(--purple-lavender);
-    transform: scale(1.05);
-}
-
-/* WhatsApp Send button on contact page */
-#sendOrder, .send {
-    background: var(--gold-warm);
-    color: black;
-    padding: 12px 18px;
-    width: 100%;
-    margin-top: 15px;
-    display: block;
+    padding: 10px;
     text-align: center;
-}
-
-#sendOrder:hover, .send:hover {
-    background: #b88e50;
-    transform: scale(1.03);
-}
-
-/* Cart link inside sidebar */
-.send-link {
-    display: block;
-    background: var(--gold-warm);
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    padding: 12px;
-    margin-top: 20px;
-}
-
-.send-link:hover {
-    background: #b88e50;
-    transform: scale(1.02);
-}
-
-/* Disabled state for send buttons / links */
-.send-link.disabled, #sendOrder:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* Quantity and Remove buttons inside cart */
-.qty-btn {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--purple-lavender);
-    background: white;
+    font-size: 14px;
     color: var(--purple-deep);
-    cursor: pointer;
-    font-weight: 600;
+    border-top: 2px solid var(--purple-lavender);
+    background: var(--white-soft);
 }
 
-.qty-btn:hover {
-    background: var(--purple-lavender);
-    color: white;
-}
-
-.remove-btn {
-    background: none;
-    border: none;
-    color: crimson;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.remove-btn:hover {
-    text-decoration: underline;
-}
-
-/* Mobile responsive adjustments */
+/* Mobile */
 @media (max-width: 600px) {
-    .add, #sendOrder, .send-link {
-        width: 100%;
-        font-size: 16px;
-        padding: 14px;
+    .site-header {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .qty-btn, .remove-btn {
-        padding: 8px 12px;
-        font-size: 14px;
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .product-section h2 {
+        text-align: center;
     }
 }
