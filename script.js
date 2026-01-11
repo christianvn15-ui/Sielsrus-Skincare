@@ -144,8 +144,10 @@ document.querySelectorAll(".product-card").forEach(card => {
         ? parseFloat(priceText.textContent.replace("R", "").trim())
         : 0;
 
+    // Open modal on card click
     card.addEventListener("click", () => openModal(name, img, price));
 
+    // Add to cart button inside card
     card.querySelector(".add").addEventListener("click", e => {
         e.stopPropagation();
         addToCart(name, price);
@@ -186,7 +188,7 @@ window.confirmClearCart = function () {
 };
 
 /* =========================
-   ADMIN WHATSAPP FORMAT (USED ON SEND PAGE)
+   GENERATE WHATSAPP MESSAGE
 ========================= */
 window.generateWhatsAppMessage = function (customer) {
     return `
