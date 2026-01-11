@@ -6,7 +6,6 @@
     <title>Send Order | Sielsrus Skincare</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 <header class="site-header">
@@ -22,34 +21,26 @@
     </nav>
 </header>
 
-<main class="order-page">
+<main class="order-page" id="orderForm">
 
-    <h2>Your Order Summary</h2>
-    <p class="order-instructions">
-        Review your items below, fill in your details, and tap <strong>Send Order via WhatsApp</strong>.
-    </p>
+    <h2>Order Details</h2>
 
     <ul id="orderSummary"></ul>
 
-    <form id="orderForm">
-        <label for="name">Full Name *</label>
-        <input id="name" placeholder="John Doe" required>
+    <input id="name" placeholder="Full Name" required>
+    <input id="location" placeholder="Delivery Location" required>
 
-        <label for="location">Delivery Location *</label>
-        <input id="location" placeholder="City / Suburb / Street" required>
-
-        <label for="courier">Courier Preference</label>
-        <select id="courier">
-            <option value="Preferred Courier">Preferred Courier</option>
-            <option value="Fastway">Fastway</option>
-            <option value="PostNet">PostNet</option>
-            <option value="Courier Guy">Courier Guy</option>
-            <option value="Pudo">Pudo</option>
-        </select>
+    <select id="courier">
+        <option value="Preferred Courier">Preferred Courier</option>
+        <option value="Fastway">Fastway</option>
+        <option value="PostNet">PostNet</option>
+        <option value="Courier Guy">Courier Guy</option>
+    </select>
 
 
-        <button type="button" id="sendOrder">Send Order via WhatsApp</button>
-    </form>
+
+    <!-- WhatsApp button -->
+    <a id="sendOrderLink" class="send" target="_blank" href="#">Send Order via WhatsApp</a>
 
 </main>
 
