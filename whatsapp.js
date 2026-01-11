@@ -1,18 +1,10 @@
-/* =========================
-   CONFIG
-========================= */
-
-// Your WhatsApp number (replace with actual, no + or spaces)
-const WHATSAPP_NUMBER = "27832621770";
-
-/* =========================
-   DOM READY WRAPPER
-========================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================
-       CART & ELEMENTS
-    ========================== */
+    // ====== CONFIG ======
+    // WhatsApp number in international format, no + or spaces
+    const WHATSAPP_NUMBER = "27832621770"; // ← FIXED NUMBER
+
+    // ====== CART & ELEMENTS ======
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const orderSummary = document.getElementById("orderSummary");
@@ -23,18 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const courierInput = document.getElementById("courier");
     const cardInput = document.getElementById("card");
 
-    /* =========================
-       PREFILL NAME & LOCATION (IF STORED)
-    ========================== */
+    // ====== PREFILL NAME & LOCATION IF SAVED ======
     const savedName = localStorage.getItem("customerName");
     const savedLocation = localStorage.getItem("customerLocation");
 
     if (savedName) nameInput.value = savedName;
     if (savedLocation) locationInput.value = savedLocation;
 
-    /* =========================
-       RENDER CART SUMMARY
-    ========================== */
+    // ====== RENDER CART ======
     function renderOrderSummary() {
         if (!orderSummary) return;
         orderSummary.innerHTML = "";
@@ -54,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
             orderSummary.appendChild(li);
         });
 
-        // Show total
         const totalLi = document.createElement("li");
         totalLi.style.marginTop = "10px";
         totalLi.innerHTML = `<strong>Total: R${cart.reduce((sum,i) => sum + i.price*i.qty, 0)}</strong>`;
@@ -66,9 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderOrderSummary();
 
-    /* =========================
-       SEND ORDER VIA WHATSAPP
-    ========================== */
+    // ====== SEND ORDER VIA WHATSAPP ======
     sendBtn.addEventListener("click", () => {
 
         if (cart.length === 0) {
@@ -119,10 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
         cart = [];
         renderOrderSummary();
 
-        // Show confirmation message on page
         const form = document.getElementById("orderForm");
-        form.innerHTML = `<h3>✅ Order Sent!</h3><p>Thank you for shopping with Sielsrus Skincare. Your WhatsApp has been opened with your order.</p>`;
+        form.innerHTML = `<h3>✅ Order Sent!</h3><p>Check WhatsApp to send your order.</p>`;
     });
 
 });
-
