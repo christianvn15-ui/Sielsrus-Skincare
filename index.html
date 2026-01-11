@@ -6,7 +6,6 @@
     <title>Sielsrus Skincare</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 <header class="site-header">
@@ -22,6 +21,7 @@
     </nav>
 </header>
 
+<!-- Cart Button -->
 <button class="cart-button">
     🛒 Cart (<span id="cartCount">0</span>)
 </button>
@@ -31,39 +31,17 @@
     <!-- Adult Lotions -->
     <section class="product-section">
         <h2>Adult Lotions - Inland</h2>
-
         <div class="product-grid">
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
+            <div class="product-card" data-name="Inland Lotion 1" data-price="120" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="Inland Lotion 1">
+                <p>Inland Lotion 1</p>
+                <p>R120</p>
                 <button class="add">+ Add to Cart</button>
             </div>
-
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
-                <button class="add">+ Add to Cart</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="product-section">
-        <h2>Adult Lotions - Coastal</h2>
-
-        <div class="product-grid">
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
-                <button class="add">+ Add to Cart</button>
-            </div>
-
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
+            <div class="product-card" data-name="Inland Lotion 2" data-price="150" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="Inland Lotion 2">
+                <p>Inland Lotion 2</p>
+                <p>R150</p>
                 <button class="add">+ Add to Cart</button>
             </div>
         </div>
@@ -72,19 +50,17 @@
     <!-- Teen Lotions -->
     <section class="product-section">
         <h2>Teen Lotions</h2>
-
         <div class="product-grid">
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
+            <div class="product-card" data-name="Teen Lotion 1" data-price="80" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="Teen Lotion 1">
+                <p>Teen Lotion 1</p>
+                <p>R80</p>
                 <button class="add">+ Add to Cart</button>
             </div>
-
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
+            <div class="product-card" data-name="Teen Lotion 2" data-price="90" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="Teen Lotion 2">
+                <p>Teen Lotion 2</p>
+                <p>R90</p>
                 <button class="add">+ Add to Cart</button>
             </div>
         </div>
@@ -93,19 +69,17 @@
     <!-- Other Products -->
     <section class="product-section">
         <h2>Other Products</h2>
-
         <div class="product-grid">
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
+            <div class="product-card" data-name="Other Product 1" data-price="70" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="Other Product 1">
+                <p>Other Product 1</p>
+                <p>R70</p>
                 <button class="add">+ Add to Cart</button>
             </div>
-
-            <div class="product-card" data-name="PRODUCT_NAME" data-img="IMAGE_SOURCE">
-                <img src="IMAGE_SOURCE" alt="PRODUCT_NAME">
-                <p>PRODUCT_NAME</p>
-                <p>R 00-00</p>
+            <div class="product-card" data-name="Other Product 2" data-price="85" data-img="IMAGE_SOURCE">
+                <img src="IMAGE_SOURCE" alt="Other Product 2">
+                <p>Other Product 2</p>
+                <p>R85</p>
                 <button class="add">+ Add to Cart</button>
             </div>
         </div>
@@ -117,20 +91,7 @@
 <div class="cart" id="cart">
     <h3>Your Order</h3>
     <ul id="cartItems"></ul>
-
-    <a href="contact.html" class="send-link">
-        Proceed to Send Order
-    </a>
-</div>
-
-<!-- Product Modal -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close">×</span>
-        <img id="modalImg">
-        <p id="modalName"></p>
-        <button class="add">+ Add to Cart</button>
-    </div>
+    <a href="contact.html" class="send-link disabled">Proceed to Send Order</a>
 </div>
 
 <footer class="site-footer">
@@ -140,3 +101,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
