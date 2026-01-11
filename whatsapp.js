@@ -1,8 +1,12 @@
+/* =========================
+   WHATSAPP ORDER SCRIPT
+========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // ====== CONFIG ======
-    // WhatsApp number in international format, no + or spaces
-    const WHATSAPP_NUMBER = "27832621770"; // ← FIXED NUMBER
+    // WhatsApp number in international format (South Africa example)
+    const WHATSAPP_NUMBER = "27832621770"; // replace with your number
 
     // ====== CART & ELEMENTS ======
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -14,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const locationInput = document.getElementById("location");
     const courierInput = document.getElementById("courier");
     const cardInput = document.getElementById("card");
+    const form = document.getElementById("orderForm");
 
     // ====== PREFILL NAME & LOCATION IF SAVED ======
     const savedName = localStorage.getItem("customerName");
@@ -22,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedName) nameInput.value = savedName;
     if (savedLocation) locationInput.value = savedLocation;
 
-    // ====== RENDER CART ======
+    // ====== RENDER CART SUMMARY ======
     function renderOrderSummary() {
         if (!orderSummary) return;
         orderSummary.innerHTML = "";
@@ -75,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("customerName", name);
         localStorage.setItem("customerLocation", location);
 
+        // Build WhatsApp message
         let message = `🧴 *Sielsrus Skincare Order* 🧴\n\n`;
         message += `👤 *Customer:* ${name}\n`;
         message += `📍 *Location:* ${location}\n`;
@@ -82,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
         message += `💳 *Card Number:* ${card}\n\n`;
 
         message += `🛒 *Order Items:*\n`;
-
         let total = 0;
         cart.forEach(item => {
             const itemTotal = item.price * item.qty;
@@ -93,19 +98,22 @@ document.addEventListener("DOMContentLoaded", () => {
         message += `\n💰 *Total:* R${total}\n`;
         message += `\nThank you for your order 💖`;
 
+        // Encode and build WhatsApp URL
         const encodedMessage = encodeURIComponent(message);
         const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
-        // Open WhatsApp
-        window.open(whatsappURL, "_blank");
+        // Open WhatsApp (mobile & desktop friendly)
+        window.location.href = whatsappURL;
 
         // Clear cart after sending
         localStorage.removeItem("cart");
         cart = [];
         renderOrderSummary();
 
-        const form = document.getElementById("orderForm");
-        form.innerHTML = `<h3>✅ Order Sent!</h3><p>Check WhatsApp to send your order.</p>`;
+        // Show confirmation
+        if (form) {
+            form.innerHTML = `<h3>✅ Order Sent!</h3><p>Check WhatsApp to send your order. If WhatsApp didn't open automatically, click the button again.</p>`;
+        }
     });
 
 });
