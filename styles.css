@@ -80,7 +80,7 @@ body {
 }
 
 /* Buttons */
-.add, .send-link {
+.add, .send-link, .send {
     margin-top: 10px;
     padding: 10px 16px;
     border-radius: 999px;
@@ -97,7 +97,7 @@ body {
     color: white;
 }
 
-.send-link {
+.send-link, .send {
     background: var(--gold-warm);
     color: black;
 }
@@ -157,6 +157,99 @@ body {
     background: var(--white-soft);
 }
 
+/* =========================
+   CONTACT / ORDER PAGE
+========================= */
+.order-page {
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--white-soft);
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(91, 42, 110, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-page h2 {
+    text-align: center;
+    color: var(--purple-deep);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.order-page input,
+.order-page select,
+.order-page textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--purple-lavender);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.order-page select {
+    background: white;
+    cursor: pointer;
+}
+
+.order-page button.send {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--gold-warm);
+    color: black;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.order-page button.send:hover {
+    transform: scale(1.05);
+    background: #d4a85a; /* slightly darker gold on hover */
+}
+
+#orderSummary {
+    list-style: none;
+    padding: 10px 15px;
+    background: var(--pink-soft);
+    border-radius: 12px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+#orderSummary li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: var(--purple-deep);
+}
+
+#confirmation {
+    text-align: center;
+    font-size: 16px;
+    color: green;
+    font-weight: bold;
+}
+
+/* Scrollbar styling for order summary */
+#orderSummary::-webkit-scrollbar {
+    width: 6px;
+}
+
+#orderSummary::-webkit-scrollbar-thumb {
+    background: var(--purple-lavender);
+    border-radius: 3px;
+}
+
+#orderSummary::-webkit-scrollbar-track {
+    background: var(--pink-soft);
+}
+
 /* Mobile */
 @media (max-width: 600px) {
     .site-header {
@@ -171,5 +264,19 @@ body {
 
     .product-section h2 {
         text-align: center;
+    }
+
+    .order-page {
+        margin: 20px 15px;
+        padding: 15px;
+    }
+
+    .order-page h2 {
+        font-size: 20px;
+    }
+
+    .order-page button.send {
+        font-size: 15px;
+        padding: 10px;
     }
 }
