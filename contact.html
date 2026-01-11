@@ -23,10 +23,11 @@
 
 <main class="order-page" id="orderForm">
 
-    <h2>Order Details</h2>
+    <h2>Send Your Order</h2>
 
     <ul id="orderSummary"></ul>
 
+    <!-- Customer Details -->
     <input id="name" placeholder="Full Name" required>
     <input id="location" placeholder="Delivery Location" required>
 
@@ -37,10 +38,9 @@
         <option value="Courier Guy">Courier Guy</option>
     </select>
 
+    <button id="sendOrder" class="send">Send Order via WhatsApp</button>
 
-
-    <!-- WhatsApp button -->
-    <a id="sendOrderLink" class="send" target="_blank" href="#">Send Order via WhatsApp</a>
+    <div id="confirmation" style="margin-top:15px; display:none; color:green; font-weight:bold;"></div>
 
 </main>
 
