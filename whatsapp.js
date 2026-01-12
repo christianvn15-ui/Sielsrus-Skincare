@@ -1,7 +1,7 @@
 // =========================
 // CONFIG
 // =========================
-const WHATSAPP_NUMBER = "27832621770"; // Replace with your WhatsApp number in international format
+const WHATSAPP_NUMBER = "27832621770"; // Your WhatsApp number in international format
 
 // =========================
 // ELEMENTS
@@ -13,7 +13,6 @@ const confirmation = document.getElementById("confirmation");
 const nameInput = document.getElementById("name");
 const locationInput = document.getElementById("location");
 const courierInput = document.getElementById("courier");
-const cardInput = document.getElementById("card");
 
 // =========================
 // RENDER ORDER SUMMARY
@@ -64,9 +63,8 @@ sendBtn.addEventListener("click", () => {
     const name = nameInput.value.trim();
     const location = locationInput.value.trim();
     const courier = courierInput.value;
-    const card = cardInput.value.trim();
 
-    if (!name || !location || !card) {
+    if (!name || !location) {
         alert("Please fill in all required fields.");
         return;
     }
@@ -74,8 +72,7 @@ sendBtn.addEventListener("click", () => {
     let message = `🧴 *Sielsrus Skincare Order* 🧴\n\n`;
     message += `👤 *Customer:* ${name}\n`;
     message += `📍 *Location:* ${location}\n`;
-    message += `🚚 *Courier:* ${courier}\n`;
-    message += `💳 *Card Number:* ${card}\n\n`;
+    message += `🚚 *Courier:* ${courier}\n\n`;
     message += `🛒 *Order Items:*\n`;
 
     let total = 0;
